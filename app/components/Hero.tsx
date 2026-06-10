@@ -16,7 +16,7 @@ export default function Hero() {
       </div>
       
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <h1 className="text-aru-page font-light text-6xl md:text-[7rem] uppercase tracking-[0.2em] md:tracking-[0.25em] text-center px-4 drop-shadow-md opacity-0 animate-fade-in-up-delay">
+        <h1 className="text-aru-page font-light text-6xl md:text-[7rem] uppercase tracking-[0.2em] md:tracking-[0.25em] text-center px-4 drop-shadow-md opacity-0 animate-fade-in-delay">
           JBeatery
         </h1>
       </div>

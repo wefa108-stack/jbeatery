@@ -23,7 +23,7 @@ export default function Navbar() {
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       
       <motion.header 
-        className="fixed top-0 left-0 w-full z-40 p-4 md:p-10 flex justify-between items-center pointer-events-none"
+        className="fixed top-0 left-0 w-full z-40 px-4 pt-10 md:p-10 flex justify-between items-center pointer-events-none"
       >
         <div className="pointer-events-auto">
           <button 
