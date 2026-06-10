@@ -21,8 +21,8 @@ const navItems = [
 export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
   return (
     <div
-      className={`fixed inset-0 z-30 bg-aru-primary/40 backdrop-blur-md flex flex-col justify-center items-center pointer-events-auto overflow-y-auto px-4 transition-all duration-500 ease-in-out ${
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+      className={`fixed inset-0 z-30 bg-aru-primary/95 flex flex-col justify-center items-center overflow-y-auto px-4 transition-opacity duration-500 ease-in-out ${
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
       <div className="flex flex-col items-center gap-6 md:gap-10">

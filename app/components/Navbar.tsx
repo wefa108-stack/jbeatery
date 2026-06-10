@@ -29,7 +29,11 @@ export default function Navbar() {
           aria-label="Menu"
           onClick={(e) => {
             e.preventDefault();
-            setIsOpen(!isOpen);
+            setIsOpen(prev => !prev);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            setIsOpen(prev => !prev);
           }}
         >
           {/* Safari Fix: Invisible solid background to ensure the entire area is clickable */}
