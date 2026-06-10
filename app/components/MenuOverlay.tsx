@@ -30,10 +30,9 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
           <div
             key={item.name}
             style={{
-              transitionDelay: isOpen ? `${i * 0.05 + 0.1}s` : "0s",
               transform: isOpen ? "translateY(0)" : "translateY(30px)",
               opacity: isOpen ? 1 : 0,
-              transition: "all 0.5s ease-out",
+              transition: `all 0.5s ease-out ${isOpen ? i * 0.05 + 0.1 : 0}s`,
             }}
           >
             <Link
@@ -50,10 +49,9 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
       <div 
         className="mt-12 md:mt-20 flex gap-6 md:gap-12"
         style={{
-          transitionDelay: isOpen ? "0.4s" : "0s",
           transform: isOpen ? "translateY(0)" : "translateY(20px)",
           opacity: isOpen ? 1 : 0,
-          transition: "all 0.5s ease-out",
+          transition: `all 0.5s ease-out ${isOpen ? 0.4 : 0}s`,
         }}
       >
         {["Instagram", "WeChat", "Email"].map((social) => (
