@@ -11,9 +11,9 @@ interface MenuOverlayProps {
 const navItems = [
   { name: "Menu", href: "/menu" },
   { name: "Reservations", href: "/reservations" },
-  { name: "Aru Archives", href: "/archives" },
+  { name: "JB Archives", href: "/archives" },
   { name: "Private Dining", href: "/private-dining" },
-  { name: "Kris+ Set Menu", href: "/kris-set" },
+  { name: "Set Menu", href: "/kris-set" },
   { name: "About", href: "/about" },
   { name: "Contact Us", href: "/contact" },
 ];
