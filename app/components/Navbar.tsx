@@ -27,13 +27,13 @@ export default function Navbar() {
       >
         <div className="pointer-events-auto">
           <button 
-            className="relative w-8 h-6 group flex flex-col justify-between focus:outline-none" 
+            className="relative w-12 h-12 flex flex-col justify-center items-center gap-[5px] focus:outline-none" 
             aria-label="Menu"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <span className={`block h-[2px] w-full bg-aru-primary transition-all duration-300 origin-left ${isOpen ? 'rotate-45 translate-y-[-1px] translate-x-[4px] w-[110%]' : 'group-hover:scale-x-75'}`}></span>
-            <span className={`block h-[2px] w-full bg-aru-primary transition-all duration-300 ${isOpen ? 'opacity-0' : 'group-hover:scale-x-75 delay-75 origin-left'}`}></span>
-            <span className={`block h-[2px] w-full bg-aru-primary transition-all duration-300 origin-left ${isOpen ? '-rotate-45 translate-y-[1px] translate-x-[4px] w-[110%]' : 'group-hover:scale-x-75 delay-150'}`}></span>
+            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
           </button>
         </div>
         

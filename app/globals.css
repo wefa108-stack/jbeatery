@@ -31,6 +31,22 @@
   /* ── Tracking (Letter Spacing) ── */
   --tracking-widest: 0.1em;
   --tracking-wider: 0.05em;
+
+  /* ── Animations ── */
+  --animate-fade-in-up: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in-up-delay: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  --animate-preloader-exit: preloader-exit 2s ease-in-out forwards;
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes preloader-exit {
+    0% { opacity: 1; pointer-events: auto; }
+    80% { opacity: 1; pointer-events: auto; }
+    100% { opacity: 0; pointer-events: none; visibility: hidden; }
+  }
 }
 
 /* ── Base Styles ── */

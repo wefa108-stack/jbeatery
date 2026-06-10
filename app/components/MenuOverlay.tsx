@@ -20,36 +20,52 @@ const navItems = [
 
 export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.29, 0.63, 0.57, 0.43] }}
-          className="fixed inset-0 z-30 bg-aru-primary/40 backdrop-blur-md flex flex-col justify-center items-center pointer-events-auto overflow-y-auto px-4"
-        >
-          <nav className="flex flex-col gap-6 md:gap-10 text-center mt-10 md:mt-20 pb-20">
-            {navItems.map((item, i) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.5, delay: i * 0.05 + 0.1, ease: "easeOut" }}
-              >
-                <Link
-                  href={item.href}
-                  onClick={onClose}
-                  className="font-light text-lg md:text-3xl text-white/70 uppercase tracking-[0.15em] md:tracking-[0.2em] hover:text-white transition-all duration-300 drop-shadow-md"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div
+      className={`fixed inset-0 z-30 bg-aru-primary/40 backdrop-blur-md flex flex-col justify-center items-center pointer-events-auto overflow-y-auto px-4 transition-all duration-500 ease-in-out ${
+        isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
+      <div className="flex flex-col items-center gap-6 md:gap-10">
+        {navItems.map((item, i) => (
+          <div
+            key={item.name}
+            style={{
+              transitionDelay: isOpen ? `${i * 0.05 + 0.1}s` : "0s",
+              transform: isOpen ? "translateY(0)" : "translateY(30px)",
+              opacity: isOpen ? 1 : 0,
+              transition: "all 0.5s ease-out",
+            }}
+          >
+            <Link
+              href={item.href}
+              onClick={onClose}
+              className="font-light text-lg md:text-3xl text-white/70 uppercase tracking-[0.15em] md:tracking-[0.2em] hover:text-white transition-all duration-300 drop-shadow-md"
+            >
+              {item.name}
+            </Link>
+          </div>
+        ))}
+      </div>
+
+      <div 
+        className="mt-12 md:mt-20 flex gap-6 md:gap-12"
+        style={{
+          transitionDelay: isOpen ? "0.4s" : "0s",
+          transform: isOpen ? "translateY(0)" : "translateY(20px)",
+          opacity: isOpen ? 1 : 0,
+          transition: "all 0.5s ease-out",
+        }}
+      >
+        {["Instagram", "WeChat", "Email"].map((social) => (
+          <a
+            key={social}
+            href="#"
+            className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+          >
+            {social}
+          </a>
+        ))}
+      </div>
+    </div>
   );
 }
