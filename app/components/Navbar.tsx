@@ -22,15 +22,24 @@ export default function Navbar() {
     <>
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {/* Left side: Hamburger Menu */}
-      <div className="fixed top-0 left-0 z-40 p-4 pt-10 md:p-10">
+      <div className="fixed top-0 left-0 z-50 p-4 pt-10 md:p-10">
         <button 
-          className="relative w-12 h-12 flex flex-col justify-center items-center gap-[5px] focus:outline-none cursor-pointer" 
+          className="w-14 h-14 flex justify-center items-center focus:outline-none cursor-pointer bg-white/10 backdrop-blur-md rounded-full shadow-lg border border-white/20 text-white hover:bg-white/20 transition-all" 
           aria-label="Menu"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
-          <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-          <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+          {isOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+          )}
         </button>
       </div>
       
