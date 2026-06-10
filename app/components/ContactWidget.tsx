@@ -26,11 +26,11 @@ export default function ContactWidget() {
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 10, opacity: 0 }}
-              transition={{ delay: 0.1, duration: 0.5, ease: [0.29, 0.63, 0.57, 0.43] }}
-              className="bg-aru-page w-full max-w-lg p-16 text-center border border-aru-brown/20 shadow-2xl"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.29, 0.63, 0.57, 0.43] }}
+              className="bg-aru-page w-[90%] md:w-full md:max-w-lg p-8 md:p-16 text-center border border-aru-brown/20 shadow-2xl"
               onClick={(e) => e.stopPropagation()} // Prevent clicking inside the modal from closing it
             >
               <h2 className="text-aru-primary font-light text-2xl uppercase tracking-[0.2em] mb-10">

@@ -28,7 +28,7 @@ export default function Hero() {
         style={{ opacity }}
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
       >
-        <h1 className="text-aru-page font-light text-5xl md:text-[7rem] uppercase tracking-[0.25em] text-center px-4 drop-shadow-md">
+        <h1 className="text-aru-page font-light text-[12vw] md:text-[7rem] uppercase tracking-[0.2em] md:tracking-[0.25em] text-center px-4 drop-shadow-md whitespace-nowrap">
           JBeatery
         </h1>
       </motion.div>

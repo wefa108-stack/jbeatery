@@ -27,9 +27,9 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: [0.29, 0.63, 0.57, 0.43] }}
-          className="fixed inset-0 z-30 bg-aru-primary/40 backdrop-blur-md flex flex-col justify-center items-center pointer-events-auto overflow-y-auto"
+          className="fixed inset-0 z-30 bg-aru-primary/40 backdrop-blur-md flex flex-col justify-center items-center pointer-events-auto overflow-y-auto px-4"
         >
-          <nav className="flex flex-col gap-8 md:gap-10 text-center mt-20 pb-20">
+          <nav className="flex flex-col gap-6 md:gap-10 text-center mt-10 md:mt-20 pb-20">
             {navItems.map((item, i) => (
               <motion.div
                 key={item.name}
@@ -41,7 +41,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                 <Link
                   href={item.href}
                   onClick={onClose}
-                  className="font-light text-xl md:text-3xl text-white/70 uppercase tracking-[0.2em] hover:text-white transition-all duration-300 drop-shadow-md"
+                  className="font-light text-lg md:text-3xl text-white/70 uppercase tracking-[0.15em] md:tracking-[0.2em] hover:text-white transition-all duration-300 drop-shadow-md"
                 >
                   {item.name}
                 </Link>

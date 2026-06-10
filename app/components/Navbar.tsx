@@ -23,7 +23,7 @@ export default function Navbar() {
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       
       <motion.header 
-        className="fixed top-0 left-0 w-full z-40 p-6 md:p-10 flex justify-between items-center pointer-events-none"
+        className="fixed top-0 left-0 w-full z-40 p-4 md:p-10 flex justify-between items-center pointer-events-none"
       >
         <div className="pointer-events-auto">
           <button 
@@ -37,8 +37,10 @@ export default function Navbar() {
           </button>
         </div>
         
-        <div className="pointer-events-auto flex items-center gap-6 md:gap-10">
-          <ContactWidget />
+        <div className="pointer-events-auto flex items-center gap-4 md:gap-10">
+          <div className="hidden md:block">
+            <ContactWidget />
+          </div>
           <ResyWidget />
         </div>
       </motion.header>

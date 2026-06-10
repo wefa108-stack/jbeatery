@@ -42,7 +42,7 @@ export default function Preloader() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }} // Subtle fade-in of the logo
           >
-            <h1 className="text-aru-primary font-light text-5xl md:text-[7rem] uppercase tracking-[0.25em]">
+            <h1 className="text-aru-primary font-light text-[12vw] md:text-[7rem] uppercase tracking-[0.2em] md:tracking-[0.25em] whitespace-nowrap">
               JBeatery
             </h1>
           </motion.div>
