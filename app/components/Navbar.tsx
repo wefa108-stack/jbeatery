@@ -23,24 +23,22 @@ export default function Navbar() {
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {/* Left side: Hamburger Menu */}
       <div className="fixed top-0 left-0 z-50 p-4 pt-10 md:p-10">
-        <button 
-          className="w-14 h-14 flex justify-center items-center focus:outline-none cursor-pointer bg-white/10 backdrop-blur-md rounded-full shadow-lg border border-white/20 text-white hover:bg-white/20 transition-all" 
+        <a 
+          href="#"
+          className="relative w-12 h-12 flex flex-col justify-center items-center gap-[5px] focus:outline-none cursor-pointer" 
           aria-label="Menu"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={(e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }}
         >
-          {isOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-          )}
-        </button>
+          {/* Safari Fix: Invisible solid background to ensure the entire area is clickable */}
+          <div className="absolute inset-0 bg-white opacity-0"></div>
+          
+          <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center relative z-10 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+          <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 relative z-10 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+          <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center relative z-10 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+        </a>
       </div>
       
       {/* Right side: Widgets */}
