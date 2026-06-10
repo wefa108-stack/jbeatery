@@ -22,7 +22,7 @@ export default function Navbar() {
     <>
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {/* Left side: Menu Button */}
-      <div className="fixed top-0 left-0 z-50 p-4 pt-10 md:p-10">
+      <div className="fixed top-0 left-0 z-50 p-4 pt-20 md:p-10 md:pt-10">
         <a 
           href="#"
           onClick={(e) => {
@@ -36,7 +36,7 @@ export default function Navbar() {
       </div>
       
       {/* Right side: Widgets */}
-      <div className="fixed top-0 right-0 z-40 p-4 pt-10 md:p-10 flex items-center gap-4 md:gap-10">
+      <div className="fixed top-0 right-0 z-40 p-4 pt-20 md:p-10 md:pt-10 flex items-center gap-4 md:gap-10">
         <div className="hidden md:block">
           <ContactWidget />
         </div>
