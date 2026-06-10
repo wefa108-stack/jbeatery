@@ -23,12 +23,16 @@ export default function Navbar() {
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {/* Left side: Menu Button */}
       <div className="fixed top-0 left-0 z-50 p-4 pt-10 md:p-10">
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="font-mono font-light text-[12px] md:text-[14px] uppercase tracking-[0.08em] text-white mix-blend-difference hover:opacity-60 transition-opacity inline-block cursor-pointer focus:outline-none"
+        <a 
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }}
+          className="p-6 -m-6 font-mono font-light text-[12px] md:text-[14px] uppercase tracking-[0.08em] text-white mix-blend-difference hover:opacity-60 transition-opacity inline-block cursor-pointer focus:outline-none"
         >
           {isOpen ? "CLOSE" : "MENU"}
-        </button>
+        </a>
       </div>
       
       {/* Right side: Widgets */}
