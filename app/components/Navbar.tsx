@@ -27,13 +27,16 @@ export default function Navbar() {
       >
         <div className="pointer-events-auto">
           <button 
-            className="relative w-12 h-12 flex flex-col justify-center items-center gap-[5px] focus:outline-none" 
+            className="relative w-12 h-12 flex flex-col justify-center items-center gap-[5px] focus:outline-none cursor-pointer" 
             aria-label="Menu"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
-            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+            {/* Safari Fix: Invisible solid background to ensure the entire 48x48 area is clickable */}
+            <div className="absolute inset-0 bg-white opacity-0"></div>
+            
+            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center relative z-10 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 relative z-10 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+            <span className={`block h-[2px] w-7 bg-aru-primary transition-all duration-300 origin-center relative z-10 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
           </button>
         </div>
         
