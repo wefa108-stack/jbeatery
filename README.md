@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JBeatery Frontend
+
+This is a premium, high-end fine-dining restaurant template built with [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), and [Framer Motion](https://www.framer.com/motion/).
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Design Philosophy
+This project heavily relies on extreme typographic scale, massive whitespace, and highly polished micro-interactions (using Framer Motion) to deliver a Michelin-star level digital experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment on Cloudflare Pages (Free & Commercial)
 
-## Learn More
+Cloudflare Pages is highly recommended for this project as it is 100% free with generous limits and fully permits commercial use.
 
-To learn more about Next.js, take a look at the following resources:
+### Method 1: GitHub Integration (Recommended)
+The easiest way to deploy is directly via the Cloudflare Dashboard:
+1. Push this code to a GitHub repository.
+2. Go to your [Cloudflare Dashboard](https://dash.cloudflare.com/) -> **Workers & Pages** -> **Create application** -> **Pages** -> **Connect to Git**.
+3. Select your repository.
+4. **Framework preset**: Select `Next.js`.
+5. Click **Save and Deploy**. 
+Cloudflare will automatically build and deploy your site, and provide you with a free `your-project.pages.dev` domain.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Method 2: Manual CLI Deployment
+If you prefer deploying via terminal, use the Cloudflare Wrangler CLI.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Build the project for Cloudflare Pages:
+```bash
+npx @cloudflare/next-on-pages
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Authenticate and Deploy:
+```bash
+npx wrangler pages deploy .vercel/output/static
+```
+*(Note: You will be prompted to log in to your Cloudflare account via the browser).*

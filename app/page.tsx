@@ -1,65 +1,44 @@
-import Image from "next/image";
+import Hero from "./components/Hero";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+      
+      {/* Main Content Area with Massive Whitespace */}
+      <main className="bg-aru-page w-full flex flex-col items-center relative z-10">
+        
+        {/* Intro Section */}
+        <section className="flex flex-col justify-center items-center min-h-[90vh] w-full px-6 py-32 max-w-aru mx-auto text-center gap-12">
+          <h2 className="text-aru-primary font-light text-2xl md:text-4xl uppercase tracking-[0.15em] leading-[1.6] max-w-lg">
+            A Wood-Fired <br/> Culinary Journey
+          </h2>
+          <p className="font-mono font-light text-[#5a483e] text-[12px] md:text-[14px] leading-[2.5] tracking-[0.05em] max-w-md opacity-90">
+            Where native ingredients and bold flavours meet the intense, transformative heat of the wood-fired hearth. Our menu reflects the seasons, crafted with precision and an unwavering commitment to quality.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
+
+        {/* Private Dining Section */}
+        <section className="flex flex-col justify-center items-center min-h-[90vh] w-full px-6 py-32 max-w-fuller mx-auto text-center gap-12 border-t border-aru-brown/20">
+          <h2 className="text-aru-primary font-light text-2xl md:text-4xl uppercase tracking-[0.15em] leading-[1.6]">
+            Private Dining
+          </h2>
+          <p className="font-mono font-light text-[#5a483e] text-[12px] md:text-[14px] leading-[2.5] tracking-[0.05em] max-w-md opacity-90">
+            An intimate space for gatherings, celebrations, and exclusive experiences.
+          </p>
+          <button className="mt-8 px-12 py-3 font-mono font-light text-[10px] md:text-[11px] uppercase tracking-[0.15em] bg-clip-padding text-aru-primary border border-aru-primary hover:bg-aru-primary hover:text-aru-back hover:border-aru-back transition-colors duration-300">
+            Enquire Now
+          </button>
+        </section>
+
       </main>
-    </div>
+      
+      {/* Footer */}
+      <footer className="w-full bg-aru-dark text-aru-page py-32 px-6 md:px-10 flex flex-col items-center text-center relative z-10">
+        <h3 className="font-light text-2xl uppercase tracking-[0.2em] mb-8 text-aru-brown">JBeatery</h3>
+        <p className="font-mono font-light text-[11px] tracking-[0.1em] opacity-60">123 Culinary Lane, Gastronomy District</p>
+        <p className="font-mono font-light text-[11px] tracking-[0.1em] opacity-60 mt-4">hello@jbeatery.com</p>
+      </footer>
+    </>
   );
 }
