@@ -54,13 +54,19 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
           transition: `all 0.5s ease-out ${isOpen ? 0.4 : 0}s`,
         }}
       >
-        {["Instagram", "WeChat", "Email"].map((social) => (
+        {[
+          { name: "Instagram", href: "https://www.instagram.com/jbeaterynyc/" },
+          { name: "WeChat", href: "#" },
+          { name: "Email", href: "#" }
+        ].map((social) => (
           <a
-            key={social}
-            href="#"
+            key={social.name}
+            href={social.href}
+            target={social.name === "Instagram" ? "_blank" : undefined}
+            rel={social.name === "Instagram" ? "noopener noreferrer" : undefined}
             className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/50 hover:text-white transition-colors"
           >
-            {social}
+            {social.name}
           </a>
         ))}
       </div>
