@@ -20,56 +20,60 @@ const navItems = [
 
 export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
   return (
-    <div
-      className={`fixed inset-0 z-30 bg-aru-primary/95 flex flex-col justify-center items-center overflow-y-auto px-4 transition-opacity duration-500 ease-in-out ${
-        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-      }`}
-    >
-      <div className="flex flex-col items-center gap-6 md:gap-10">
-        {navItems.map((item, i) => (
-          <div
-            key={item.name}
-            style={{
-              transform: isOpen ? "translateY(0)" : "translateY(30px)",
-              opacity: isOpen ? 1 : 0,
-              transition: `all 0.5s ease-out ${isOpen ? i * 0.05 + 0.1 : 0}s`,
-            }}
-          >
-            <Link
-              href={item.href}
-              onClick={onClose}
-              className="font-light text-lg md:text-3xl text-white/70 uppercase tracking-[0.15em] md:tracking-[0.2em] hover:text-white transition-all duration-300 drop-shadow-md"
-            >
-              {item.name}
-            </Link>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 z-30 bg-aru-primary/95 flex flex-col justify-center items-center overflow-y-auto px-4"
+        >
+          <div className="flex flex-col items-center gap-6 md:gap-10">
+            {navItems.map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4, delay: i * 0.05, ease: "easeOut" }}
+              >
+                <Link
+                  href={item.href}
+                  onClick={onClose}
+                  className="font-light text-lg md:text-3xl text-white/70 uppercase tracking-[0.15em] md:tracking-[0.2em] hover:text-white transition-all duration-300 drop-shadow-md"
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div 
-        className="mt-12 md:mt-20 flex gap-6 md:gap-12"
-        style={{
-          transform: isOpen ? "translateY(0)" : "translateY(20px)",
-          opacity: isOpen ? 1 : 0,
-          transition: `all 0.5s ease-out ${isOpen ? 0.4 : 0}s`,
-        }}
-      >
-        {[
-          { name: "Instagram", href: "https://www.instagram.com/jbeaterynyc/" },
-          { name: "WeChat", href: "#" },
-          { name: "Email", href: "#" }
-        ].map((social) => (
-          <a
-            key={social.name}
-            href={social.href}
-            target={social.name === "Instagram" ? "_blank" : undefined}
-            rel={social.name === "Instagram" ? "noopener noreferrer" : undefined}
-            className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+            className="mt-12 md:mt-20 flex gap-6 md:gap-12"
           >
-            {social.name}
-          </a>
-        ))}
-      </div>
-    </div>
+            {[
+              { name: "Instagram", href: "https://www.instagram.com/jbeaterynyc/" },
+              { name: "WeChat", href: "#" },
+              { name: "Email", href: "#" }
+            ].map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target={social.name === "Instagram" ? "_blank" : undefined}
+                rel={social.name === "Instagram" ? "noopener noreferrer" : undefined}
+                className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+              >
+                {social.name}
+              </a>
+            ))}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
