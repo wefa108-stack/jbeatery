@@ -33,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <Preloader />
         <Navbar />
         {children}
       </body>
