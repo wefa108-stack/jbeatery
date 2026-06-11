@@ -51,9 +51,9 @@
   }
 
 @keyframes preloader-exit {
-  0% { opacity: 1; pointer-events: auto; }
-  80% { opacity: 1; pointer-events: auto; }
-  100% { opacity: 0; pointer-events: none; visibility: hidden; }
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
 }
 
 /* ── Base Styles ── */
