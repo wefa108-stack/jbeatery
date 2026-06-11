@@ -22,21 +22,16 @@ export default function Navbar() {
     <>
       <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {/* Left side: Menu Button */}
-      <div className="fixed top-0 left-0 z-50 p-4 pt-20 md:p-10 md:pt-10">
-        <a 
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            setIsOpen(!isOpen);
-          }}
-          className="p-6 -m-6 font-mono font-light text-[12px] md:text-[14px] uppercase tracking-[0.08em] text-white mix-blend-difference hover:opacity-60 transition-opacity inline-block cursor-pointer focus:outline-none"
+      <div className="fixed top-0 left-0 z-50 p-4 pt-14 md:p-10">
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="font-mono font-light text-[12px] md:text-[14px] uppercase tracking-[0.08em] text-white mix-blend-difference hover:opacity-60 transition-opacity cursor-pointer focus:outline-none"
         >
-          {isOpen ? "CLOSE" : "MENU"}
-        </a>
+          {isOpen ? "Close" : "Menu"}
+        </button>
       </div>
       
-      {/* Right side: Widgets */}
-      <div className="fixed top-0 right-0 z-40 p-4 pt-20 md:p-10 md:pt-10 flex items-center gap-4 md:gap-10">
+      <div className="fixed top-0 right-0 z-40 p-4 pt-14 md:p-10 flex items-center gap-4 md:gap-10">
         <div className="hidden md:block">
           <ContactWidget />
         </div>
