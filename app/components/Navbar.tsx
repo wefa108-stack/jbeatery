@@ -1,42 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import ResyWidget from "./ResyWidget";
-import ContactWidget from "./ContactWidget";
-import MenuOverlay from "./MenuOverlay";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Lock scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [isOpen]);
-
   return (
-    <>
-      <MenuOverlay isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      {/* Left side: Menu Button */}
-      <div className="fixed top-0 left-0 z-50 p-4 pt-14 md:p-10">
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="font-mono font-light text-[12px] md:text-[14px] uppercase tracking-[0.08em] text-white mix-blend-difference hover:opacity-60 transition-opacity cursor-pointer focus:outline-none"
-        >
-          {isOpen ? "Close" : "Menu"}
-        </button>
-      </div>
-      
-      <div className="fixed top-0 right-0 z-40 p-4 pt-14 md:p-10 flex items-center gap-4 md:gap-10">
-        <div className="hidden md:block">
-          <ContactWidget />
-        </div>
-        <ResyWidget />
-      </div>
-    </>
+    <header className="fixed top-0 left-0 right-0 z-40 px-6 py-6 md:px-12 md:py-8 flex justify-between items-center bg-gradient-to-b from-[#14100e]/80 to-transparent backdrop-blur-[2px]">
+      <Link href="/" className="flex items-center gap-3 group">
+        <Image
+          src="/JBE-logo.svg"
+          alt="JBE Logo"
+          width={36}
+          height={36}
+          className="w-7 h-7 md:w-9 md:h-9 object-contain rounded-md transition-transform duration-300 group-hover:scale-105"
+        />
+        <span className="font-serif text-sm md:text-base tracking-[0.25em] uppercase text-[#ede8e5] group-hover:text-[#c9a47c] transition-colors duration-300">
+          JBE
+        </span>
+      </Link>
+
+      <span className="font-mono font-light text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#c9a47c]/80">
+        West Village
+      </span>
+    </header>
   );
 }

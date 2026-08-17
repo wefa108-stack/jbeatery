@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Preloader() {
   const [done, setDone] = useState(false);
 
-  // Bulletproof fallback: remove from DOM after 2s no matter what
   useEffect(() => {
-    const timer = setTimeout(() => setDone(true), 2000);
+    const timer = setTimeout(() => setDone(true), 1800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -15,17 +15,26 @@ export default function Preloader() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-aru-page animate-preloader-exit pointer-events-none"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#14100e] animate-preloader-exit pointer-events-none"
       onAnimationEnd={(e) => {
-        // Only respond to our own animation, not bubbled child animations
         if (e.animationName === "preloader-exit") {
           setDone(true);
         }
       }}
     >
-      <h1 className="text-aru-primary font-light text-[10vw] md:text-[7rem] uppercase tracking-[0.2em] md:tracking-[0.25em] whitespace-nowrap opacity-0 animate-fade-in">
-        JBeatery
-      </h1>
+      <div className="flex flex-col items-center gap-4 opacity-0 animate-fade-in">
+        <Image
+          src="/JBE-logo.svg"
+          alt="JBE Logo"
+          width={120}
+          height={124}
+          className="w-24 md:w-32 h-auto object-contain rounded-lg shadow-xl"
+          priority
+        />
+        <span className="font-serif text-sm tracking-[0.3em] uppercase text-[#c9a47c] mt-2">
+          JBE
+        </span>
+      </div>
     </div>
   );
 }

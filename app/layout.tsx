@@ -1,25 +1,33 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Cormorant_Garamond, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
+
+const fontSerif = Cormorant_Garamond({
+  variable: "--font-primary-serif",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["italic", "normal"],
+  display: "swap",
+});
 
 const fontSans = Space_Grotesk({
   variable: "--font-primary-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500"],
   display: "swap",
 });
 
 const fontMono = Space_Mono({
   variable: "--font-primary-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "JBeatery | Restaurant & Bar",
+  title: "JBE | West Village, New York",
   description:
-    "Where native ingredients and bold flavours meet the heat of the wood-fired hearth.",
+    "Located in the West Village, JBE brings together seasonal ingredients, thoughtful cooking, and genuine hospitality.",
 };
 
 import Navbar from "./components/Navbar";
@@ -31,8 +39,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${fontSerif.variable} ${fontSans.variable} ${fontMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col bg-[#14100e] text-[#ede8e5]" suppressHydrationWarning>
         <Preloader />
         <Navbar />
         {children}

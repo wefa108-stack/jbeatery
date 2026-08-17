@@ -1,43 +1,130 @@
 import Hero from "./components/Hero";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
+      {/* Fullscreen Hero Section */}
       <Hero />
-      
-      {/* Main Content Area with Massive Whitespace */}
-      <main className="bg-aru-page w-full flex flex-col items-center relative z-10">
+
+      {/* Main Content Area - About JBE */}
+      <main id="about-section" className="bg-[#14100e] text-[#ede8e5] w-full flex flex-col items-center relative z-10">
         
-        {/* Intro Section */}
-        <section className="flex flex-col justify-center items-center min-h-[80vh] md:min-h-[90vh] w-full px-4 md:px-6 py-16 md:py-32 max-w-aru mx-auto text-center gap-8 md:gap-12">
-          <h2 className="text-aru-primary font-light text-xl md:text-4xl uppercase tracking-[0.15em] leading-[1.6] max-w-lg">
-            A Wood-Fired <br/> Culinary Journey
-          </h2>
-          <p className="font-mono font-light text-[#5a483e] text-[12px] md:text-[14px] leading-[2.5] tracking-[0.05em] max-w-md opacity-90">
-            Where native ingredients and bold flavours meet the intense, transformative heat of the wood-fired hearth. Our menu reflects the seasons, crafted with precision and an unwavering commitment to quality.
-          </p>
+        {/* Decorative Divider */}
+        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#c9a47c]/40 to-transparent my-4" />
+
+        {/* About Section */}
+        <section className="flex flex-col justify-center items-center w-full px-6 md:px-12 py-20 md:py-32 max-w-3xl mx-auto text-center gap-12">
+          
+          {/* Header */}
+          <div className="space-y-4 flex flex-col items-center">
+            <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#c9a47c] opacity-90">
+              Welcome to
+            </span>
+            <h2 className="text-[#ede8e5] font-serif font-light text-3xl md:text-5xl uppercase tracking-[0.2em] leading-tight">
+              About JBE
+            </h2>
+            <div className="w-12 h-[1px] bg-[#c9a47c]/50 mt-2" />
+          </div>
+
+          {/* Copy Paragraphs */}
+          <div className="font-serif font-light text-lg md:text-2xl text-[#ede8e5]/90 leading-[2.1] md:leading-[2.4] tracking-[0.02em] space-y-8 md:space-y-12">
+            <p>
+              Located in the West Village, JBE brings together seasonal ingredients, thoughtful cooking, and genuine hospitality.
+            </p>
+            <p>
+              Our menu combines French technique with the flavors and traditions of Asia. We create dishes that feel familiar yet distinctive—thoughtfully prepared, well-balanced, and made to be shared.
+            </p>
+            <p>
+              From the first welcome to the last bite, every detail is considered with care. We hope each visit feels relaxed, memorable, and worth returning to.
+            </p>
+          </div>
+
+          {/* Sign-off */}
+          <div className="pt-8 md:pt-12 font-serif text-base md:text-xl text-[#c9a47c] tracking-[0.1em] space-y-2 opacity-95">
+            <p className="italic font-light">With warmth,</p>
+            <p className="font-medium uppercase tracking-[0.25em] text-[#ede8e5] text-sm md:text-base">from JBE.</p>
+          </div>
+
+          {/* Instagram Button */}
+          <div className="pt-4">
+            <a
+              href="https://www.instagram.com/jbeaterynyc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] text-[#c9a47c] hover:text-[#ede8e5] bg-[#c9a47c]/10 hover:bg-[#c9a47c]/20 border border-[#c9a47c]/30 transition-all duration-300 px-6 py-2.5 rounded-full shadow-sm hover:shadow-md"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Follow @jbeaterynyc</span>
+            </a>
+          </div>
+
         </section>
 
-        {/* Private Dining Section */}
-        <section className="flex flex-col justify-center items-center min-h-[80vh] md:min-h-[90vh] w-full px-4 md:px-6 py-16 md:py-32 max-w-fuller mx-auto text-center gap-8 md:gap-12 border-t border-aru-brown/20">
-          <h2 className="text-aru-primary font-light text-xl md:text-4xl uppercase tracking-[0.15em] leading-[1.6]">
-            Private Dining
-          </h2>
-          <p className="font-mono font-light text-[#5a483e] text-[12px] md:text-[14px] leading-[2.5] tracking-[0.05em] max-w-md opacity-90">
-            An intimate space for gatherings, celebrations, and exclusive experiences.
-          </p>
-          <button className="mt-6 md:mt-8 px-10 md:px-12 py-3 font-mono font-light text-[10px] md:text-[11px] uppercase tracking-[0.15em] bg-clip-padding text-aru-primary border border-aru-primary hover:bg-aru-primary hover:text-aru-back hover:border-aru-back transition-colors duration-300">
-            Enquire Now
-          </button>
+        {/* Brand Banner / Accent Image Frame */}
+        <section className="w-full max-w-4xl px-6 py-12 md:py-20 flex justify-center">
+          <div className="relative w-full aspect-[16/9] max-h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-[#c9a47c]/20">
+            <Image
+              src="/jbebackground.png"
+              alt="JBE West Village Ambiance"
+              fill
+              className="object-cover object-center opacity-60 hover:opacity-75 transition-opacity duration-700"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#14100e] via-transparent to-[#14100e]/40" />
+            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end text-left">
+              <div>
+                <p className="font-serif text-xl md:text-2xl tracking-[0.15em] text-[#ede8e5] uppercase">West Village</p>
+                <p className="font-mono text-xs text-[#c9a47c] tracking-widest uppercase">New York City</p>
+              </div>
+              <Image
+                src="/JBE-logo.svg"
+                alt="JBE Mark"
+                width={50}
+                height={50}
+                className="w-10 h-10 md:w-12 md:h-12 object-contain opacity-80"
+              />
+            </div>
+          </div>
         </section>
 
       </main>
       
-      {/* Footer */}
-      <footer className="w-full bg-aru-dark text-aru-page py-20 md:py-32 px-4 md:px-10 flex flex-col items-center text-center relative z-10">
-        <h3 className="font-light text-2xl uppercase tracking-[0.2em] mb-8 text-aru-brown">JBeatery</h3>
-        <p className="font-mono font-light text-[11px] tracking-[0.1em] opacity-60">123 Culinary Lane, Gastronomy District</p>
-        <p className="font-mono font-light text-[11px] tracking-[0.1em] opacity-60 mt-4">hello@jbeatery.com</p>
+      {/* Clean Minimalist Footer */}
+      <footer className="w-full bg-[#0d0a09] text-[#ede8e5] py-16 md:py-24 px-6 md:px-12 flex flex-col items-center text-center relative z-10 border-t border-[#c9a47c]/10">
+        <div className="w-16 h-16 mb-6 relative">
+          <Image
+            src="/JBE-logo.svg"
+            alt="JBE Logo"
+            fill
+            className="object-contain"
+          />
+        </div>
+        <h3 className="font-serif font-light text-xl md:text-2xl uppercase tracking-[0.25em] mb-3 text-[#c9a47c]">
+          JBE
+        </h3>
+        <p className="font-mono font-light text-[11px] md:text-xs tracking-[0.2em] text-[#ede8e5]/60 uppercase mb-6">
+          West Village &bull; New York
+        </p>
+
+        {/* Footer Instagram Link */}
+        <a
+          href="https://www.instagram.com/jbeaterynyc/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#c9a47c] hover:text-[#ede8e5] transition-colors"
+        >
+          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <p className="font-mono font-light text-[10px] tracking-[0.15em] text-[#ede8e5]/40 mt-8">
+          &copy; {new Date().getFullYear()} JBE. All rights reserved.
+        </p>
       </footer>
     </>
   );

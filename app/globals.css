@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── ARU Color Palette ── */
-  --color-aru-black: #231f20;
-  --color-aru-dark: #423b33;
-  --color-aru-brown: #9c7054;
-  --color-aru-brown-trans: rgba(156, 112, 84, 0.9);
+  /* ── JBE Color Palette ── */
+  --color-aru-black: #14100e;
+  --color-aru-dark: #231916;
+  --color-aru-brown: #c9a47c;
+  --color-aru-brown-trans: rgba(201, 164, 124, 0.9);
   --color-aru-light: #ede8e5;
-  --color-aru-page: #ede8e5;
-  --color-aru-page-trans: rgba(237, 232, 229, 0.8);
+  --color-aru-page: #1a1513;
+  --color-aru-page-trans: rgba(26, 21, 19, 0.85);
 
   /* ── Semantic Aliases ── */
   --color-aru-primary: var(--color-aru-brown);
@@ -25,30 +25,36 @@
   --text-mobile: 0.7rem;
 
   /* ── Typography ── */
+  --font-serif: var(--font-primary-serif), Georgia, serif;
   --font-sans: var(--font-primary-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-primary-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  
-  /* ── Tracking (Letter Spacing) ── */
-  --tracking-widest: 0.1em;
-  --tracking-wider: 0.05em;
+  --font-mono: var(--font-primary-mono), ui-monospace, monospace;
 
+  /* ── Tracking (Letter Spacing) ── */
+  --tracking-widest: 0.25em;
+  --tracking-wider: 0.12em;
 }
 
-  /* ── Custom Animations ── */
-  .animate-fade-in {
-    animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  .animate-fade-in-delay {
-    animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-  }
-  .animate-preloader-exit {
-    animation: preloader-exit 1.5s ease-in-out forwards;
-  }
+/* ── Custom Animations ── */
+.animate-fade-in {
+  animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-fade-in-delay {
+  animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+.animate-preloader-exit {
+  animation: preloader-exit 1.5s ease-in-out forwards;
+}
 
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes preloader-exit {
   0% { opacity: 1; }
@@ -59,26 +65,24 @@
 /* ── Base Styles ── */
 html {
   scroll-behavior: smooth;
+  background-color: #14100e;
 }
 
 body {
-  background-color: var(--color-aru-page);
-  color: var(--color-aru-dark);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  line-height: 1.7rem;
+  background-color: #14100e;
+  color: #ede8e5;
+  font-family: var(--font-serif);
   overflow-x: hidden;
 }
 
 /* ── Typography Utilities ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-widest);
+  font-family: var(--font-serif);
+  letter-spacing: 0.18em;
 }
 
 /* ── Selection ── */
 ::selection {
-  background-color: var(--color-aru-brown);
-  color: var(--color-aru-light);
+  background-color: #c9a47c;
+  color: #14100e;
 }
