@@ -34,11 +34,11 @@
   --tracking-wider: 0.12em;
 }
 
-/* ── Calligraphy Brush Write Animation ── */
-@keyframes brush-write {
+/* ── Stroke-by-Stroke Calligraphy Writing Animations ── */
+@keyframes stroke-write-j {
   0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0.3;
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
   }
   20% {
     opacity: 1;
@@ -49,8 +49,47 @@
   }
 }
 
-.animate-brush-write {
-  animation: brush-write 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+@keyframes stroke-write-b {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes stroke-write-e {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-stroke-j {
+  opacity: 0;
+  animation: stroke-write-j 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+.animate-stroke-b {
+  opacity: 0;
+  animation: stroke-write-b 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.95s forwards;
+}
+
+.animate-stroke-e {
+  opacity: 0;
+  animation: stroke-write-e 0.75s cubic-bezier(0.4, 0, 0.2, 1) 1.7s forwards;
 }
 
 /* ── Custom Animations ── */
@@ -61,7 +100,7 @@
   animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 .animate-preloader-exit {
-  animation: preloader-exit 1.2s ease-in-out 2.5s forwards;
+  animation: preloader-exit 1.2s ease-in-out 3.4s forwards;
 }
 
 @keyframes fade-in {

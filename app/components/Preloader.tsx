@@ -7,7 +7,7 @@ export default function Preloader() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setDone(true), 3600);
+    const timer = setTimeout(() => setDone(true), 4500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -33,15 +33,37 @@ export default function Preloader() {
         />
       </div>
 
-      {/* Calligraphy Brush Write-out Animation Container */}
-      <div className="relative z-10 w-64 md:w-96 h-auto flex items-center justify-center p-4">
-        <div className="relative w-full h-auto overflow-hidden animate-brush-write">
+      {/* Calligraphy Stroke-by-Stroke Animation (J -> B -> E) */}
+      <div className="relative z-10 w-64 md:w-96 aspect-[853/490] flex items-center justify-center p-4">
+        {/* Stroke J */}
+        <div className="absolute inset-0 animate-stroke-j">
           <Image
-            src="/jbe_calligraphy_logo_cropped.png"
-            alt="JBE Calligraphy"
-            width={853}
-            height={490}
-            className="w-full h-auto object-contain drop-shadow-2xl"
+            src="/jbe_letter_J.png"
+            alt="JBE Stroke J"
+            fill
+            className="object-contain drop-shadow-2xl"
+            priority
+          />
+        </div>
+
+        {/* Stroke B */}
+        <div className="absolute inset-0 animate-stroke-b">
+          <Image
+            src="/jbe_letter_B.png"
+            alt="JBE Stroke B"
+            fill
+            className="object-contain drop-shadow-2xl"
+            priority
+          />
+        </div>
+
+        {/* Stroke E */}
+        <div className="absolute inset-0 animate-stroke-e">
+          <Image
+            src="/jbe_letter_E.png"
+            alt="JBE Stroke E"
+            fill
+            className="object-contain drop-shadow-2xl"
             priority
           />
         </div>
