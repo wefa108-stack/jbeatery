@@ -57,7 +57,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
             className="mt-12 md:mt-20 flex gap-6 md:gap-12"
           >
             {[
-              { name: "Instagram", href: "https://www.instagram.com/jbeaterynyc/" },
+              { name: "Instagram", href: "https://www.instagram.com/jbe.ny" },
               { name: "WeChat", href: "#" },
               { name: "Email", href: "#" }
             ].map((social) => (

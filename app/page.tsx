@@ -45,7 +45,7 @@ export default function Home() {
             {/* Instagram Button */}
             <div className="pt-2">
               <a
-                href="https://www.instagram.com/jbe.ny?igsh=MXYwYjdnOHFxeTJvbw%3D%3D"
+                href="https://www.instagram.com/jbe.ny"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] text-[#8c674b] hover:text-[#231916] bg-[#8c674b]/10 hover:bg-[#8c674b]/20 border border-[#8c674b]/30 transition-all duration-300 px-6 py-2.5 rounded-full shadow-xs hover:shadow-md"
@@ -82,7 +82,7 @@ export default function Home() {
 
             {/* Footer Instagram Link */}
             <a
-              href="https://www.instagram.com/jbe.ny?igsh=MXYwYjdnOHFxeTJvbw%3D%3D"
+              href="https://www.instagram.com/jbe.ny"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#8c674b] hover:text-[#231916] transition-colors opacity-90 hover:opacity-100"
