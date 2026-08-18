@@ -19,7 +19,7 @@ export default function Hero() {
 
       {/* Hero Content - Clean Transparent Brown SVG Logo with Welcome & Address (Positioned lower) */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto pt-32 pb-20 md:pt-44 md:pb-28 mt-6 md:mt-10 gap-8">
-        <div className="w-48 md:w-72 h-auto opacity-0 animate-fade-in transition-transform duration-500 hover:scale-102">
+        <div className="w-48 md:w-72 h-auto opacity-0 animate-fade-in">
           <Image
             src="/JBE-logo-darkbrown.svg"
             alt="JBE Logo"
