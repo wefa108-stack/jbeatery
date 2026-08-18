@@ -22,16 +22,15 @@ export default function Preloader() {
         }
       }}
     >
-      {/* Red Textured Background from jbeanime.pdf */}
+      {/* Plain Red Background provided by user */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/jbe_red_bg.png"
+          src="/jbe_plain_red_bg.png"
           alt="JBE Red Background"
           fill
-          className="object-cover object-center opacity-90 scale-102"
+          className="object-cover object-center scale-102"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#421212]/30 via-transparent to-[#2b0a0a]/60" />
       </div>
 
       {/* Calligraphy Brush Write-out Animation Container */}

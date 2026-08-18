@@ -5,29 +5,27 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#f3ece6] text-[#231916] px-6">
-      {/* Background Image with Warm Beige Overlay */}
+      {/* Background Image: Plain Beige provided by user */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/jbebackground.png"
-          alt="JBE West Village Background"
+          src="/jbe_plain_beige_bg.png"
+          alt="JBE Plain Beige Background"
           fill
-          className="object-cover object-center opacity-85 transition-transform duration-10000 ease-out hover:scale-103"
+          className="object-cover object-center"
           priority
           sizes="100vw"
         />
-        {/* Soft Warm Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f3ece6]/70 via-transparent to-[#f3ece6]" />
       </div>
 
-      {/* Hero Content - ONLY JBE-logo.svg */}
+      {/* Hero Content - Clean Transparent Brown SVG Logo without rounded box container */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto pt-24 pb-12">
-        <div className="w-44 md:w-64 h-auto shadow-2xl rounded-2xl overflow-hidden border border-[#3b2e28]/15 bg-[#231916] p-2 opacity-0 animate-fade-in transition-transform duration-500 hover:scale-102">
+        <div className="w-48 md:w-72 h-auto opacity-0 animate-fade-in transition-transform duration-500 hover:scale-102">
           <Image
-            src="/JBE-logo.svg"
+            src="/JBE-logo-darkbrown.svg"
             alt="JBE Logo"
             width={561}
             height={581}
-            className="w-full h-auto object-contain rounded-xl"
+            className="w-full h-auto object-contain drop-shadow-sm"
             priority
           />
         </div>
