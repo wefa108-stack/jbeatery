@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'HuiwenMingcho';
+  src: url('/fonts/huiwen.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-huiwen {
+  font-family: 'HuiwenMingcho', var(--font-primary-serif), serif !important;
+}
+
 @theme inline {
   /* ── JBE Color Palette (Warm Cream Beige Theme) ── */
   --color-aru-black: #231916;
@@ -28,6 +40,7 @@
   --font-serif: var(--font-primary-serif), Georgia, serif;
   --font-sans: var(--font-primary-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-primary-mono), ui-monospace, monospace;
+  --font-huiwen: 'HuiwenMingcho', var(--font-primary-serif), serif;
 
   /* ── Tracking (Letter Spacing) ── */
   --tracking-widest: 0.25em;
@@ -79,17 +92,17 @@
 
 .animate-stroke-j {
   opacity: 0;
-  animation: stroke-write-j 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  animation: stroke-write-j 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards;
 }
 
 .animate-stroke-b {
   opacity: 0;
-  animation: stroke-write-b 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.95s forwards;
+  animation: stroke-write-b 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.65s forwards;
 }
 
 .animate-stroke-e {
   opacity: 0;
-  animation: stroke-write-e 0.75s cubic-bezier(0.4, 0, 0.2, 1) 1.7s forwards;
+  animation: stroke-write-e 0.55s cubic-bezier(0.4, 0, 0.2, 1) 1.15s forwards;
 }
 
 /* ── Custom Animations ── */
@@ -100,7 +113,7 @@
   animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 .animate-preloader-exit {
-  animation: preloader-exit 1.2s ease-in-out 3.4s forwards;
+  animation: preloader-exit 0.8s ease-in-out 2.1s forwards;
 }
 
 @keyframes fade-in {

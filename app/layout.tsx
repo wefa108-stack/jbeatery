@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Space_Grotesk, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const fontHuiwen = localFont({
+  src: "./fonts/huiwen.otf",
+  variable: "--font-huiwen",
+  display: "swap",
+});
 
 const fontSerif = Cormorant_Garamond({
   variable: "--font-primary-serif",
@@ -41,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSerif.variable} ${fontSans.variable} ${fontMono.variable} h-full antialiased`}
+      className={`${fontHuiwen.variable} ${fontSerif.variable} ${fontSans.variable} ${fontMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#f3ece6] text-[#231916]" suppressHydrationWarning>

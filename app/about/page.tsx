@@ -11,10 +11,10 @@ export default function AboutPage() {
           className="object-contain"
         />
       </div>
-      <h1 className="text-[#231916] font-serif font-light text-3xl md:text-5xl uppercase tracking-[0.2em] text-center mb-12">
+      <h1 className="text-[#231916] font-huiwen font-normal text-3xl md:text-5xl uppercase tracking-[0.2em] text-center mb-12">
         About JBE
       </h1>
-      <div className="max-w-2xl w-full text-center font-serif text-lg md:text-2xl text-[#3b2e28] leading-[2.1] space-y-8">
+      <div className="max-w-2xl w-full text-center font-huiwen text-lg md:text-2xl text-[#3b2e28] leading-[2.1] space-y-8">
         <p>
           Located in the West Village, JBE brings together seasonal ingredients, thoughtful cooking, and genuine hospitality.
         </p>

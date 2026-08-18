@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#f3ece6] text-[#231916] px-6">
-      {/* Background Image: Plain Beige provided by user */}
+      {/* Background Image: Plain Beige */}
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/jbe_plain_beige_bg.png"
@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Content - Clean Transparent Brown SVG Logo with Welcome & Address */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto pt-20 pb-12 gap-6">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto pt-24 pb-24 md:pt-32 md:pb-36 gap-8">
         <div className="w-48 md:w-72 h-auto opacity-0 animate-fade-in transition-transform duration-500 hover:scale-102">
           <Image
             src="/JBE-logo-darkbrown.svg"
