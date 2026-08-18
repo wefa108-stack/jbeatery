@@ -24,8 +24,8 @@ export default function AboutPage() {
         <p>
           From the first welcome to the last bite, every detail is considered with care. We hope each visit feels relaxed, memorable, and worth returning to.
         </p>
-        <div className="pt-8 font-serif text-base md:text-xl text-[#8c674b] tracking-[0.1em] space-y-2 opacity-95">
-          <p className="italic font-light">With warmth,</p>
+        <div className="pt-8 font-huiwen text-base md:text-xl text-[#3b2e28] tracking-[0.1em] space-y-2 opacity-95">
+          <p className="font-normal">With warmth,</p>
           <p className="font-medium uppercase tracking-[0.25em] text-[#231916] text-sm md:text-base">from JBE.</p>
         </div>
         <div className="pt-4">

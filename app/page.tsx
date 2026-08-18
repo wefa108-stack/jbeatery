@@ -37,7 +37,7 @@ export default function Home() {
             </div>
 
             {/* Sign-off - Huiwen Mingcho Font (.font-huiwen) */}
-            <div className="pt-6 md:pt-10 font-huiwen text-base md:text-xl text-[#8c674b] tracking-[0.12em] space-y-2">
+            <div className="pt-6 md:pt-10 font-huiwen text-base md:text-xl text-[#3b2e28] tracking-[0.12em] space-y-2">
               <p className="font-normal">With warmth,</p>
               <p className="font-normal uppercase tracking-[0.25em] text-[#231916] text-sm md:text-base">from JBE.</p>
             </div>
