@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── JBE Color Palette ── */
-  --color-aru-black: #14100e;
-  --color-aru-dark: #231916;
-  --color-aru-brown: #c9a47c;
-  --color-aru-brown-trans: rgba(201, 164, 124, 0.9);
-  --color-aru-light: #ede8e5;
-  --color-aru-page: #1a1513;
-  --color-aru-page-trans: rgba(26, 21, 19, 0.85);
+  /* ── JBE Color Palette (Warm Cream Beige Theme) ── */
+  --color-aru-black: #231916;
+  --color-aru-dark: #3b2e28;
+  --color-aru-brown: #8c674b;
+  --color-aru-brown-trans: rgba(140, 103, 75, 0.9);
+  --color-aru-light: #f9f6f3;
+  --color-aru-page: #f3ece6;
+  --color-aru-page-trans: rgba(243, 236, 230, 0.9);
 
   /* ── Semantic Aliases ── */
   --color-aru-primary: var(--color-aru-brown);
@@ -34,6 +34,25 @@
   --tracking-wider: 0.12em;
 }
 
+/* ── Calligraphy Brush Write Animation ── */
+@keyframes brush-write {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-brush-write {
+  animation: brush-write 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
 /* ── Custom Animations ── */
 .animate-fade-in {
   animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -42,7 +61,7 @@
   animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 .animate-preloader-exit {
-  animation: preloader-exit 1.5s ease-in-out forwards;
+  animation: preloader-exit 1.2s ease-in-out 2.5s forwards;
 }
 
 @keyframes fade-in {
@@ -57,20 +76,19 @@
 }
 
 @keyframes preloader-exit {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.02); visibility: hidden; }
 }
 
 /* ── Base Styles ── */
 html {
   scroll-behavior: smooth;
-  background-color: #14100e;
+  background-color: #f3ece6;
 }
 
 body {
-  background-color: #14100e;
-  color: #ede8e5;
+  background-color: #f3ece6;
+  color: #231916;
   font-family: var(--font-serif);
   overflow-x: hidden;
 }
@@ -83,6 +101,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Selection ── */
 ::selection {
-  background-color: #c9a47c;
-  color: #14100e;
+  background-color: #8c674b;
+  color: #f9f6f3;
 }

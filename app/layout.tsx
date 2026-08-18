@@ -44,7 +44,7 @@ export default function RootLayout({
       className={`${fontSerif.variable} ${fontSans.variable} ${fontMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#14100e] text-[#ede8e5]" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-[#f3ece6] text-[#231916]" suppressHydrationWarning>
         <Preloader />
         <Navbar />
         {children}

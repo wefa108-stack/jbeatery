@@ -1,5 +1,4 @@
 import Hero from "./components/Hero";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -7,28 +6,28 @@ export default function Home() {
       {/* Fullscreen Hero Section */}
       <Hero />
 
-      {/* Main Content Area - About JBE */}
-      <main id="about-section" className="bg-[#14100e] text-[#ede8e5] w-full flex flex-col items-center relative z-10">
+      {/* Main Content Area - About JBE (Warm Cream Beige Background) */}
+      <main id="about-section" className="bg-[#f3ece6] text-[#231916] w-full flex flex-col items-center relative z-10">
         
-        {/* Decorative Divider */}
-        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#c9a47c]/40 to-transparent my-4" />
+        {/* Decorative Line Divider */}
+        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-[#8c674b]/30 to-transparent my-4" />
 
         {/* About Section */}
         <section className="flex flex-col justify-center items-center w-full px-6 md:px-12 py-20 md:py-32 max-w-3xl mx-auto text-center gap-12">
           
           {/* Header */}
           <div className="space-y-4 flex flex-col items-center">
-            <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#c9a47c] opacity-90">
+            <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8c674b]">
               Welcome to
             </span>
-            <h2 className="text-[#ede8e5] font-serif font-light text-3xl md:text-5xl uppercase tracking-[0.2em] leading-tight">
+            <h2 className="text-[#231916] font-serif font-light text-3xl md:text-5xl uppercase tracking-[0.2em] leading-tight">
               About JBE
             </h2>
-            <div className="w-12 h-[1px] bg-[#c9a47c]/50 mt-2" />
+            <div className="w-12 h-[1px] bg-[#8c674b]/40 mt-2" />
           </div>
 
           {/* Copy Paragraphs */}
-          <div className="font-serif font-light text-lg md:text-2xl text-[#ede8e5]/90 leading-[2.1] md:leading-[2.4] tracking-[0.02em] space-y-8 md:space-y-12">
+          <div className="font-serif font-light text-lg md:text-2xl text-[#3b2e28] leading-[2.1] md:leading-[2.4] tracking-[0.02em] space-y-8 md:space-y-12">
             <p>
               Located in the West Village, JBE brings together seasonal ingredients, thoughtful cooking, and genuine hospitality.
             </p>
@@ -41,9 +40,9 @@ export default function Home() {
           </div>
 
           {/* Sign-off */}
-          <div className="pt-8 md:pt-12 font-serif text-base md:text-xl text-[#c9a47c] tracking-[0.1em] space-y-2 opacity-95">
+          <div className="pt-8 md:pt-12 font-serif text-base md:text-xl text-[#8c674b] tracking-[0.1em] space-y-2">
             <p className="italic font-light">With warmth,</p>
-            <p className="font-medium uppercase tracking-[0.25em] text-[#ede8e5] text-sm md:text-base">from JBE.</p>
+            <p className="font-medium uppercase tracking-[0.25em] text-[#231916] text-sm md:text-base">from JBE.</p>
           </div>
 
           {/* Instagram Button */}
@@ -52,7 +51,7 @@ export default function Home() {
               href="https://www.instagram.com/jbeaterynyc/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] text-[#c9a47c] hover:text-[#ede8e5] bg-[#c9a47c]/10 hover:bg-[#c9a47c]/20 border border-[#c9a47c]/30 transition-all duration-300 px-6 py-2.5 rounded-full shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-2.5 font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] text-[#8c674b] hover:text-[#231916] bg-[#8c674b]/10 hover:bg-[#8c674b]/20 border border-[#8c674b]/30 transition-all duration-300 px-6 py-2.5 rounded-full shadow-xs hover:shadow-md"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -63,58 +62,26 @@ export default function Home() {
 
         </section>
 
-        {/* Brand Banner / Accent Image Frame */}
-        <section className="w-full max-w-4xl px-6 py-12 md:py-20 flex justify-center">
-          <div className="relative w-full aspect-[16/9] max-h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-[#c9a47c]/20">
-            <Image
-              src="/jbebackground.png"
-              alt="JBE West Village Ambiance"
-              fill
-              className="object-cover object-center opacity-60 hover:opacity-75 transition-opacity duration-700"
-              sizes="(max-width: 1024px) 100vw, 896px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#14100e] via-transparent to-[#14100e]/40" />
-            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end text-left">
-              <div>
-                <p className="font-serif text-xl md:text-2xl tracking-[0.15em] text-[#ede8e5] uppercase">West Village</p>
-                <p className="font-mono text-xs text-[#c9a47c] tracking-widest uppercase">New York City</p>
-              </div>
-              <Image
-                src="/JBE-logo.svg"
-                alt="JBE Mark"
-                width={50}
-                height={50}
-                className="w-10 h-10 md:w-12 md:h-12 object-contain opacity-80"
-              />
-            </div>
-          </div>
-        </section>
-
       </main>
       
       {/* Clean Minimalist Footer */}
-      <footer className="w-full bg-[#0d0a09] text-[#ede8e5] py-16 md:py-24 px-6 md:px-12 flex flex-col items-center text-center relative z-10 border-t border-[#c9a47c]/10">
-        <div className="w-16 h-16 mb-6 relative">
-          <Image
-            src="/JBE-logo.svg"
-            alt="JBE Logo"
-            fill
-            className="object-contain"
-          />
-        </div>
-        <h3 className="font-serif font-light text-xl md:text-2xl uppercase tracking-[0.25em] mb-3 text-[#c9a47c]">
+      <footer className="w-full bg-[#eae3dc] text-[#231916] py-16 md:py-24 px-6 md:px-12 flex flex-col items-center text-center relative z-10 border-t border-[#8c674b]/15">
+        <h3 className="font-serif font-light text-xl md:text-2xl uppercase tracking-[0.25em] mb-4 text-[#8c674b]">
           JBE
         </h3>
-        <p className="font-mono font-light text-[11px] md:text-xs tracking-[0.2em] text-[#ede8e5]/60 uppercase mb-6">
-          West Village &bull; New York
-        </p>
+        
+        {/* Footer Address */}
+        <div className="font-mono font-light text-[11px] md:text-xs tracking-[0.2em] text-[#3b2e28]/80 uppercase space-y-1 mb-6">
+          <p>51 W 8th St</p>
+          <p>west village . nyc</p>
+        </div>
 
         {/* Footer Instagram Link */}
         <a
           href="https://www.instagram.com/jbeaterynyc/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#c9a47c] hover:text-[#ede8e5] transition-colors"
+          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[#8c674b] hover:text-[#231916] transition-colors"
         >
           <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -122,7 +89,7 @@ export default function Home() {
           <span>Instagram</span>
         </a>
 
-        <p className="font-mono font-light text-[10px] tracking-[0.15em] text-[#ede8e5]/40 mt-8">
+        <p className="font-mono font-light text-[10px] tracking-[0.15em] text-[#3b2e28]/50 mt-8">
           &copy; {new Date().getFullYear()} JBE. All rights reserved.
         </p>
       </footer>

@@ -7,7 +7,7 @@ export default function Preloader() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setDone(true), 1800);
+    const timer = setTimeout(() => setDone(true), 3600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -15,25 +15,37 @@ export default function Preloader() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#14100e] animate-preloader-exit pointer-events-none"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#421212] animate-preloader-exit pointer-events-none overflow-hidden"
       onAnimationEnd={(e) => {
         if (e.animationName === "preloader-exit") {
           setDone(true);
         }
       }}
     >
-      <div className="flex flex-col items-center gap-4 opacity-0 animate-fade-in">
+      {/* Red Textured Background from jbeanime.pdf */}
+      <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/JBE-logo.svg"
-          alt="JBE Logo"
-          width={120}
-          height={124}
-          className="w-24 md:w-32 h-auto object-contain rounded-lg shadow-xl"
+          src="/jbe_red_bg.png"
+          alt="JBE Red Background"
+          fill
+          className="object-cover object-center opacity-90 scale-102"
           priority
         />
-        <span className="font-serif text-sm tracking-[0.3em] uppercase text-[#c9a47c] mt-2">
-          JBE
-        </span>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#421212]/30 via-transparent to-[#2b0a0a]/60" />
+      </div>
+
+      {/* Calligraphy Brush Write-out Animation Container */}
+      <div className="relative z-10 w-64 md:w-96 h-auto flex items-center justify-center p-4">
+        <div className="relative w-full h-auto overflow-hidden animate-brush-write">
+          <Image
+            src="/jbe_calligraphy_logo_cropped.png"
+            alt="JBE Calligraphy"
+            width={853}
+            height={490}
+            className="w-full h-auto object-contain drop-shadow-2xl"
+            priority
+          />
+        </div>
       </div>
     </div>
   );
