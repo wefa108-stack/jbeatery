@@ -77,7 +77,7 @@ export default function Home() {
             {/* Footer Address */}
             <div className="font-mono font-light text-[11px] md:text-xs tracking-[0.2em] text-[#3b2e28]/80 uppercase space-y-1 mb-6">
               <p>51 W 8th St</p>
-              <p>west village . nyc</p>
+              <p>west village · nyc</p>
             </div>
 
             {/* Footer Instagram Link */}

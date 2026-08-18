@@ -37,7 +37,7 @@ export default function Hero() {
           </p>
           <div className="font-mono text-[11px] md:text-xs tracking-[0.25em] text-[#8c674b] uppercase space-y-1 pt-1">
             <p>51 W 8th St</p>
-            <p>west village . nyc</p>
+            <p>west village · nyc</p>
           </div>
         </div>
       </div>
