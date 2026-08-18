@@ -36,8 +36,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Sign-off - Huiwen Mingcho Font (.font-huiwen) Indented Right */}
-            <div className="pt-6 md:pt-8 font-huiwen text-lg md:text-xl text-[#3b2e28] tracking-[0.12em] space-y-2 ml-auto w-fit text-left pr-8 sm:pr-16 md:pr-24">
+            {/* Sign-off - Huiwen Mingcho Font (.font-huiwen) Centered */}
+            <div className="pt-6 md:pt-8 font-huiwen text-lg md:text-xl text-[#3b2e28] tracking-[0.12em] space-y-2 mx-auto w-full text-center">
               <p className="font-normal">With warmth,</p>
               <p className="font-normal uppercase tracking-[0.25em] text-[#231916] text-sm md:text-base">from JBE.</p>
             </div>
