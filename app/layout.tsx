@@ -35,6 +35,13 @@ export const metadata: Metadata = {
   title: "JBE | West Village, New York",
   description:
     "Located in the West Village, JBE brings together seasonal ingredients, thoughtful cooking, and genuine hospitality.",
+  icons: {
+    icon: [
+      { url: "/JBE-logo-darkbrown.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/JBE-logo-darkbrown.svg",
+    apple: "/JBE-logo-darkbrown.svg",
+  },
 };
 
 import Navbar from "./components/Navbar";
