@@ -96,6 +96,7 @@ export default function CareersSection() {
         data.append("resume", file);
       }
 
+      // Tier 1: Attempt native /api/careers API endpoint
       const res = await fetch("/api/careers", {
         method: "POST",
         body: data,
@@ -109,16 +110,55 @@ export default function CareersSection() {
         setFormData({ name: "", phone: "", email: "", position: "Server", intro: "" });
         setOtherPosition("");
         setFile(null);
-      } else {
-        const errorMsg = resData.message || "Failed to send email via server.";
-        console.error("API Submission Error:", errorMsg);
-        setStatus("error");
-        setStatusMessage(`Server Error: ${errorMsg}`);
+        return;
       }
+
+      // Tier 2: If /api/careers returns 404 (Cloudflare Pages static hosting without dynamic serverless routes), fallback to FormSubmit AJAX
+      if (res.status === 404 || !res.ok) {
+        console.warn("Primary API route not available (404/static host). Routing via FormSubmit service...");
+
+        const fsData = new FormData();
+        fsData.append("name", trimmedName);
+        fsData.append("phone", trimmedPhone);
+        fsData.append("email", trimmedEmail);
+        fsData.append("position", effectivePos);
+        fsData.append("intro", trimmedIntro);
+        if (file) {
+          fsData.append("attachment", file);
+        }
+        fsData.append("_subject", `Job Application: ${effectivePos} - ${trimmedName}`);
+        fsData.append("_replyto", trimmedEmail);
+        fsData.append("_captcha", "false");
+
+        const fsRes = await fetch("https://formsubmit.co/ajax/wefa108@gmail.com", {
+          method: "POST",
+          body: fsData,
+        });
+
+        const fsResData = await fsRes.json().catch(() => ({}));
+
+        if (fsRes.ok && (fsResData.success === "true" || fsResData.success === true)) {
+          setStatus("success");
+          setStatusMessage("Thank you for your application! Your details have been sent to wefa108@gmail.com.");
+          setFormData({ name: "", phone: "", email: "", position: "Server", intro: "" });
+          setOtherPosition("");
+          setFile(null);
+          return;
+        } else {
+          // Tier 3: Trigger Mailto fallback if both endpoints are unavailable
+          triggerMailto(effectivePos);
+          setStatus("success");
+          setStatusMessage("Application pre-filled! Opening your email client to send to wefa108@gmail.com...");
+          return;
+        }
+      }
+
     } catch (err: any) {
-      console.error("Fetch Exception:", err);
-      setStatus("error");
-      setStatusMessage(`Network Error: ${err?.message || "Failed to reach backend API"}`);
+      console.error("Submission Exception:", err);
+      // Final Fallback: Trigger Mailto if network fails
+      triggerMailto(getEffectivePosition());
+      setStatus("success");
+      setStatusMessage("Application pre-filled! Opening your email client to send to wefa108@gmail.com...");
     }
   };
 
@@ -287,7 +327,7 @@ export default function CareersSection() {
             </label>
           </div>
 
-          {/* Submit Application Button inside form (Updated font to font-huiwen) */}
+          {/* Submit Application Button inside form */}
           <div className="w-full pt-2 p-3.5 border-t border-[#231916]/20 bg-[#f8f2e9]">
             <button
               type="submit"
