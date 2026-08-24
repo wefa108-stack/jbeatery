@@ -52,7 +52,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "JBE Careers <onboarding@resend.dev>",
+        from: "JBE Careers <careers@jbeny.com>",
         to: ["wefa108@gmail.com"],
         reply_to: `${name} <${email}>`,
         subject: `Job Application: ${position} - ${name}`,

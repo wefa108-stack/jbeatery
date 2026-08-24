@@ -78,7 +78,7 @@ async function handleCareers(request: Request, env: Env): Promise<Response> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "JBE Careers <onboarding@resend.dev>",
+      from: "JBE Careers <careers@jbeny.com>",
       to: [RECIPIENT],
       reply_to: `${name} <${email}>`,
       subject: `Job Application: ${position} - ${name}`,
