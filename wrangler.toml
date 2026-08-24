@@ -1,5 +1,4 @@
 name = "jbeatery"
-compatibility_date = "2024-05-01"
-
-[assets]
-directory = "out"
+compatibility_date = "2026-08-24"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
