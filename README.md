@@ -16,29 +16,44 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Design Philosophy
 This project heavily relies on extreme typographic scale, massive whitespace, and highly polished micro-interactions (using Framer Motion) to deliver a Michelin-star level digital experience.
 
-## Deployment on Cloudflare Pages (Free & Commercial)
+## Deployment on Cloudflare Workers
 
-Cloudflare Pages is highly recommended for this project as it is 100% free with generous limits and fully permits commercial use.
+The site is deployed as a **Cloudflare Worker with static assets** (project name: `jbeatery`).
 
-### Method 1: GitHub Integration (Recommended)
-The easiest way to deploy is directly via the Cloudflare Dashboard:
-1. Push this code to a GitHub repository.
-2. Go to your [Cloudflare Dashboard](https://dash.cloudflare.com/) -> **Workers & Pages** -> **Create application** -> **Pages** -> **Connect to Git**.
-3. Select your repository.
-4. **Framework preset**: Select `Next.js`.
-5. Click **Save and Deploy**. 
-Cloudflare will automatically build and deploy your site, and provide you with a free `your-project.pages.dev` domain.
+- `next build` produces the static export in `out/` (`output: "export"` in `next.config.ts`).
+- `worker/index.ts` is the Worker entry point. It serves everything from the `ASSETS`
+  binding (the `out/` directory) and handles the single dynamic route `POST /api/careers`,
+  which forwards the job application to Resend.
+- `wrangler.jsonc` wires the two together.
+- `app/api/careers/route.ts` is the equivalent handler used by `next dev` only — it is
+  never part of the static export, so the Worker route is what runs in production.
 
-### Method 2: Manual CLI Deployment
-If you prefer deploying via terminal, use the Cloudflare Wrangler CLI.
+### Cloudflare build settings (dashboard → Workers & Pages → jbeatery → Settings → Build)
 
-1. Build the project for Cloudflare Pages:
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+`exit 0` as the deploy command means *nothing is ever deployed* — the site silently keeps
+serving the previous build, which is what caused `/api/careers` to return 404.
+
+### Environment variables
+
+`RESEND_API_KEY` must be added as a **Secret** (Settings → Variables and Secrets → type
+*Secret*). A plaintext *Variable* is overwritten on every `wrangler deploy` because it is
+not declared in `wrangler.jsonc`; secrets are preserved.
+
+### Manual deployment
+
 ```bash
-npx @cloudflare/next-on-pages
+npm run build
+npx wrangler deploy          # requires Node.js >= 22
 ```
 
-2. Authenticate and Deploy:
+Verify the API route after a deploy:
+
 ```bash
-npx wrangler pages deploy .vercel/output/static
+curl https://www.jbeny.com/api/careers
+# {"ok":true,"route":"/api/careers","configured":true}
 ```
-*(Note: You will be prompted to log in to your Cloudflare account via the browser).*

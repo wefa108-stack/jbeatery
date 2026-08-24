@@ -113,8 +113,9 @@ export default function CareersSection() {
         return;
       }
 
-      // Tier 2: If /api/careers returns 404 (Cloudflare Pages static hosting without dynamic serverless routes), fallback to FormSubmit AJAX
-      if (res.status === 404 || !res.ok) {
+      // Tier 2: Only fall back to the FormSubmit service if the API route itself is
+      // missing (e.g. a static-only deployment where the Worker never ran).
+      if (res.status === 404 || res.status === 405) {
         console.warn("Primary API route not available (404/static host). Routing via FormSubmit service...");
 
         const fsData = new FormData();
@@ -144,14 +145,24 @@ export default function CareersSection() {
           setOtherPosition("");
           setFile(null);
           return;
-        } else {
-          // Tier 3: Trigger Mailto fallback if both endpoints are unavailable
-          triggerMailto(effectivePos);
-          setStatus("success");
-          setStatusMessage("Application pre-filled! Opening your email client to send to wefa108@gmail.com...");
-          return;
         }
+
+        // Tier 3: Trigger Mailto fallback if both endpoints are unavailable
+        triggerMailto(effectivePos);
+        setStatus("success");
+        setStatusMessage("Application pre-filled! Opening your email client to send to wefa108@gmail.com...");
+        return;
       }
+
+      // The API route responded but rejected the submission (validation error,
+      // mail provider failure, ...) — surface the real reason instead of hiding it.
+      console.error("API Submission Error:", resData?.message || res.status);
+      setStatus("error");
+      setStatusMessage(
+        resData?.message ||
+          "We could not send your application right now. Please try again, or email wefa108@gmail.com directly."
+      );
+      return;
 
     } catch (err: any) {
       console.error("Submission Exception:", err);
