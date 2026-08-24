@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Resend instance initialized securely from environment variable
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
+export const runtime = "nodejs"; // Ensure Node.js runtime compatibility for Cloudflare Pages / Vercel
 
 export async function POST(request: Request) {
   try {
@@ -22,22 +20,39 @@ export async function POST(request: Request) {
       );
     }
 
-    // Convert resume File to attachment buffer if provided
-    const attachments = [];
-    if (resume && resume.size > 0) {
-      const buffer = Buffer.from(await resume.arrayBuffer());
-      attachments.push({
-        filename: resume.name,
-        content: buffer,
-      });
-    }
-
-    if (!resend) {
-      console.warn("RESEND_API_KEY is not configured in environment variables.");
+    // Retrieve RESEND_API_KEY dynamically inside POST handler
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is missing in environment variables.");
       return NextResponse.json(
-        { success: false, message: "Email service not configured" },
+        { success: false, message: "RESEND_API_KEY environment variable is not configured." },
         { status: 500 }
       );
+    }
+
+    const resend = new Resend(apiKey);
+
+    // Convert resume File to attachment (buffer or base64) safely across all runtimes
+    const attachments = [];
+    if (resume && resume.size > 0) {
+      const arrayBuffer = await resume.arrayBuffer();
+      let attachmentContent: Buffer | string;
+      
+      if (typeof Buffer !== "undefined") {
+        attachmentContent = Buffer.from(arrayBuffer);
+      } else {
+        const bytes = new Uint8Array(arrayBuffer);
+        let binary = "";
+        for (let i = 0; i < bytes.byteLength; i++) {
+          binary += String.fromCharCode(bytes[i]);
+        }
+        attachmentContent = btoa(binary);
+      }
+
+      attachments.push({
+        filename: resume.name,
+        content: attachmentContent,
+      });
     }
 
     // Send email to wefa108@gmail.com via Resend
@@ -71,10 +86,10 @@ export async function POST(request: Request) {
       data: emailResult.data,
       message: "Application sent successfully to wefa108@gmail.com",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error sending career application email:", error);
     return NextResponse.json(
-      { success: false, message: "Failed to send email application" },
+      { success: false, message: error?.message || "Failed to send email application" },
       { status: 500 }
     );
   }

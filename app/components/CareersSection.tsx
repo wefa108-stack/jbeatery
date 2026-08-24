@@ -101,21 +101,24 @@ export default function CareersSection() {
         body: data,
       });
 
-      if (res.ok) {
+      const resData = await res.json().catch(() => ({}));
+
+      if (res.ok && resData.success) {
         setStatus("success");
-        setStatusMessage("Thank you for your application! Your details have been submitted for review.");
+        setStatusMessage("Thank you for your application! Your details have been sent to wefa108@gmail.com.");
         setFormData({ name: "", phone: "", email: "", position: "Server", intro: "" });
         setOtherPosition("");
         setFile(null);
       } else {
-        triggerMailto(effectivePos);
-        setStatus("success");
-        setStatusMessage("Application pre-filled! Opening your email client to send to wefa108@gmail.com...");
+        const errorMsg = resData.message || "Failed to send email via server.";
+        console.error("API Submission Error:", errorMsg);
+        setStatus("error");
+        setStatusMessage(`Server Error: ${errorMsg}`);
       }
-    } catch {
-      triggerMailto(effectivePos);
-      setStatus("success");
-      setStatusMessage("Application pre-filled! Opening your email client to send to wefa108@gmail.com...");
+    } catch (err: any) {
+      console.error("Fetch Exception:", err);
+      setStatus("error");
+      setStatusMessage(`Network Error: ${err?.message || "Failed to reach backend API"}`);
     }
   };
 
