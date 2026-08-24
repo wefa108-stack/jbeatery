@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Hero from "./components/Hero";
+import CareersSection from "./components/CareersSection";
 
 export default function Home() {
   return (
@@ -9,11 +10,11 @@ export default function Home() {
         <Hero />
       </div>
 
-      {/* About & Footer Sections (Soft Light Cream Background #f8f2e9) */}
+      {/* About, Careers & Footer Sections (Soft Light Cream Background #f8f2e9) */}
       <div className="relative z-10 w-full bg-[#f8f2e9] text-[#231916]">
         
         {/* About Section Content - Huiwen Mingcho Font */}
-        <main id="about-section" className="relative z-10 w-full flex flex-col items-center pt-20 pb-20 md:pt-36 md:pb-32">
+        <main id="about-section" className="relative z-10 w-full flex flex-col items-center pt-20 pb-16 md:pt-36 md:pb-24">
           <section className="flex flex-col justify-center items-center w-full px-6 md:px-12 max-w-2xl mx-auto text-center gap-8 md:gap-10">
             
             {/* Header (No line divider) */}
@@ -59,6 +60,9 @@ export default function Home() {
 
           </section>
         </main>
+
+        {/* Careers / Recruitment Section */}
+        <CareersSection />
         
         {/* Clean Minimalist Footer with JBE SVG Logo */}
         <footer className="relative z-10 w-full py-16 md:py-24 px-6 md:px-12 flex flex-col items-center text-center">
